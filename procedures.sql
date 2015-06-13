@@ -1,4 +1,4 @@
--- stored procedures
+-- show all players
 DELIMITER ;;
 CREATE PROCEDURE selectPlayers()
 BEGIN
@@ -7,6 +7,7 @@ END;
 ;;
 DELIMITER ;
 
+-- show all teams
 DELIMITER ;;
 CREATE PROCEDURE all_teams()
 BEGIN
@@ -38,19 +39,8 @@ END;
 ;;
 DELIMITER ;
 
--- test procedure use using a db
--- RETURNS ERROR 1314 (0A000): USE is not allowed in stored procedures
-DELIMITER ;;
-CREATE PROCEDURE selectHockeyDB()
-BEGIN
-    use hockey;
-END;
-;;
-DELIMITER ;
-
 -- CREATE A STORE PROCEDURE TO UPDATE THE home_team_score AND THE
 -- away_team_score FOR THE CURRENT RECORD EVERY TIME THE PROCEDURE IS CALLED.
-
 DELIMITER ;;
 CREATE PROCEDURE updateScores(IN homeScore INTEGER, IN awayScore INTEGER, IN p_season INTEGER, IN p_play_date DATE)
 BEGIN
