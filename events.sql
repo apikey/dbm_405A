@@ -31,4 +31,4 @@ CREATE EVENT BACKUP_EVERY_FRIDAY
             SELECT * INTO OUTFILE 'teams.csv'
             FROM baseball.season;
         END;
-
+DELIMITER ;
