@@ -4,12 +4,12 @@ CREATE EVENT BACKUP_EVERY_FRIDAY
     ON SCHEDULE EVERY 1 WEEK
         STARTS TIMESTAMP(CASE DAYNAME(NOW())
             WHEN 'Friday' THEN NOW()
-            WHEN 'Saturday' THEN NOW + INTERVAL 6 DAY
-            WHEN 'Sunday' THEN NOW + INTERVAL 5 DAY
-            WHEN 'Monday' THEN NOW + INTERVAL 4 DAY
-            WHEN 'Tuesday' THEN NOW + INTERVAL 3 DAY
-            WHEN 'Wednesday' THEN NOW + INTERVAL 2 DAY
-            WHEN 'Thursday' THEN NOW + INTERVAL 1 DAY
+            WHEN 'Saturday' THEN NOW() + INTERVAL 6 DAY
+            WHEN 'Sunday' THEN NOW() + INTERVAL 5 DAY
+            WHEN 'Monday' THEN NOW() + INTERVAL 4 DAY
+            WHEN 'Tuesday' THEN NOW() + INTERVAL 3 DAY
+            WHEN 'Wednesday' THEN NOW() + INTERVAL 2 DAY
+            WHEN 'Thursday' THEN NOW() + INTERVAL 1 DAY
             END, '00:00:00')
         DO
         BEGIN
