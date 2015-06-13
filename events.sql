@@ -9,7 +9,7 @@ CREATE EVENT BACKUP_EVERY_FRIDAY
             WHEN 'Monday' THEN NOW + INTERVAL 4 DAY
             WHEN 'Tuesday' THEN NOW + INTERVAL 3 DAY
             WHEN 'Wednesday' THEN NOW + INTERVAL 2 DAY
-            WHEN 'Thursday' THEN NOW + INTERAL 1 DAY
+            WHEN 'Thursday' THEN NOW + INTERVAL 1 DAY
             END, '00:00:00')
         DO
         BEGIN
