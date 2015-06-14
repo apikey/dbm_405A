@@ -52,3 +52,91 @@ BEGIN
 END;
 ;;
 DELIMITER ;
+
+
+-- procedures for updating different fields in the customers table
+DELIMITER ;;
+CREATE PROCEDURE updateCustomer(IN p_cust_id INTEGER, IN p_field_to_update INTEGER, IN p_updateValue VARCHAR(255))
+BEGIN
+    CASE p_field_to_update
+    WHEN 1 THEN 
+        UPDATE order_tracker.customers
+        SET cust_lastname = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 2 THEN
+        UPDATE order_tracker.customers
+        SET cust_firstname = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 3 THEN
+        UPDATE order_tracker.customers
+        SET cust_street = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 4 THEN
+        UPDATE order_tracker.customers
+        SET cust_city = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 5 THEN
+        UPDATE order_tracker.customers
+        SET cust_state = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 6 THEN
+        UPDATE order_tracker.customers
+        SET cust_zipcode = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 7 THEN
+        UPDATE order_tracker.customers
+        SET cust_homephone = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 8 THEN
+        UPDATE order_tracker.customers
+        SET cust_cellphone = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 9 THEN
+        UPDATE order_tracker.customers
+        SET cust_workphone = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 10 THEN
+        UPDATE order_tracker.customers
+        SET cust_fax = p_updateValue
+        WHERE cust_id = p_cust_id;
+    WHEN 11 THEN
+        UPDATE order_tracker.customers
+        SET cust_email = p_updateValue
+        WHERE cust_id = p_cust_id;
+    END CASE;
+END;
+;;
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
