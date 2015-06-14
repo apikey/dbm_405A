@@ -33,3 +33,13 @@ CREATE EVENT BACKUP_EVERY_FRIDAY
         END;
 ;;
 DELIMITER ;
+
+-- output player table to a csv file when event is created
+DELIMITER ;;
+CREATE EVENT outfile_players
+    ON SCHEDULE AT NOW()
+    DO
+    SELECT * INTO OUTFILE 'players.csv'
+    FROM hockey.players;
+;;
+DELIMITER ;
