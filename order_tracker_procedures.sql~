@@ -44,6 +44,11 @@ BEGIN
     p_email,
     CURRENT_DATE()
     );
+    BEGIN
+        SELECT cust_firstname, cust_lastname
+        FROM order_tracker.customers
+        WHERE cust_id = (SELECT MAX(cust_id) FROM order_tracker.customers);
+    END;
 END;
 ;;
 DELIMITER ;
