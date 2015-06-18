@@ -54,4 +54,32 @@ END;
 ;;
 DELIMITER ;
 
+-- create a trigger that updates the order_balance when there is a payment
+-- applied or payment reversed
+DELIMITER ;;
+CREATE DEFINER = CURRENT_USER TRIGGER UPDATE_BALANCE_WHEN_PAYMENT_RECEIVED
+BEFORE UPDATE ON order_tracker.orders FOR EACH ROW
+BEGIN
+    IF NEW.order_payment > OLD.order_payment THEN
+        SET NEW.order_balance = (NEW.order_balance - NEW.order_payment);
+    ELSEIF NEW.order_payment  < OLD.order_payment THEN
+        SET NEW.order_balance = (OLD.order_payment + OLD.order_balance);
+    END IF;
+END;
+;;
+DELIMITER ;
+
 -- Note:  need to update foreign keys on tables and set those constraints
+-- Note: Updating of OLD row is not allowed in trigger
+
+
+
+
+
+
+
+
+
+
+
+
